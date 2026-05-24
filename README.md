@@ -1,4 +1,4 @@
-### Terraform AWS Infrastructure Project
+# Terraform AWS Infrastructure Project
 
 
 ## Project Overview
