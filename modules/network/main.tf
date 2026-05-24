@@ -24,18 +24,33 @@ resource "aws_subnet" "public" {
 }
 
 
-resource "aws_subnet" "private" {
-  vpc_id     = aws_vpc.main.id
-  cidr_block = var.private_subnet_cidr
+resource "aws_subnet" "private_1" {
+  vpc_id            = aws_vpc.main.id
+  cidr_block        = var.private_subnet_cidr
+  availability_zone = "ap-south-1a"
 
   tags = {
-  Name        = "private-subnet"
-  ManagedBy   = "Terraform"
-  Environment = "Dev"
-  Project     = "IaC-Project"
-}
+    Name        = "private-subnet-1"
+    ManagedBy   = "Terraform"
+    Environment = "Dev"
+    Project     = "IaC-Project"
+  }
 }
 
+
+
+resource "aws_subnet" "private_2" {
+  vpc_id            = aws_vpc.main.id
+  cidr_block        = var.private_subnet_2_cidr
+  availability_zone = "ap-south-1b"
+
+  tags = {
+    Name        = "private-subnet-2"
+    ManagedBy   = "Terraform"
+    Environment = "Dev"
+    Project     = "IaC-Project"
+  }
+}
 
 resource "aws_internet_gateway" "igw" {
   vpc_id = aws_vpc.main.id
