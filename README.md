@@ -220,7 +220,7 @@ aws sts get-caller-identity
 ## Step 1 — Clone Repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/iac-project.git
+git clone https://github.com/sumeetneware/iac-project.git
 ```
 
 Move into environment directory:
