@@ -86,12 +86,6 @@ VPC
 
 # Technologies Used
 
-- Terraform
-- AWS
-- Open Policy Agent (OPA)
-- GitHub
-- AWS CLI
----
 | Technology | Purpose |
 |---|---|
 | Terraform | Infrastructure provisioning and automation |
@@ -105,6 +99,8 @@ VPC
 | Rego | Policy language used by OPA |
 | Git & GitHub | Version control and project hosting |
 | AWS CLI | AWS authentication and backend setup |
+---
+
 
 # Repository Structure
 
