@@ -182,7 +182,7 @@ git --version
 
 Install OPA:
 
-https://www.openpolicyagent.org/downloads/latest/
+https://www.openpolicyagent.org/docs?current-os=windows#1-download-opa
 
 Verify installation:
 
