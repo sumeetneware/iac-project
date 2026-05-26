@@ -2,18 +2,9 @@
 
 ## Project Overview
 
-This project provisions a production-style AWS infrastructure environment using Terraform.
+This project provisions a production-style AWS cloud infrastructure environment using Terraform and Infrastructure as Code (IaC) principles. The primary objective of this project is to demonstrate practical DevOps and Cloud Engineering skills by automating the deployment, configuration, and governance of AWS infrastructure resources.
 
-The infrastructure includes:
-
-- Custom VPC
-- Public and Private Subnets
-- Route Tables and Internet Gateway
-- EC2 Compute Instance
-- Secure S3 Storage
-- Private RDS MySQL Database
-- Remote Terraform State Backend
-- Policy-as-Code using Open Policy Agent (OPA)
+The infrastructure includes secure networking, compute resources, cloud storage, database services, remote Terraform state management, and Policy-as-Code validation using Open Policy Agent (OPA). The project follows modular Terraform design practices, enabling reusable, scalable, and maintainable infrastructure code.
 
 The project follows Infrastructure as Code (IaC) best practices including:
 
@@ -27,6 +18,11 @@ The project follows Infrastructure as Code (IaC) best practices including:
 ---
 
 # Architecture
+The infrastructure architecture follows a layered and modular cloud design approach commonly used in enterprise AWS environments. The project separates networking, compute, storage, database, and governance responsibilities into reusable Terraform modules.
+
+The environment is designed with security and scalability considerations in mind. Public-facing resources such as the EC2 instance are deployed in a public subnet, while sensitive backend resources such as the RDS database are deployed within private subnets to reduce external exposure.
+
+Terraform remote state management is implemented using AWS S3 and DynamoDB to support collaborative and production-style infrastructure workflows. Additionally, OPA Policy-as-Code integration validates Terraform plans before deployment to enforce security and compliance standards.
 
 ## Infrastructure Components
 
@@ -95,8 +91,20 @@ VPC
 - Open Policy Agent (OPA)
 - GitHub
 - AWS CLI
-
 ---
+| Technology | Purpose |
+|---|---|
+| Terraform | Infrastructure provisioning and automation |
+| AWS | Cloud infrastructure platform |
+| Amazon VPC | Network isolation and segmentation |
+| EC2 | Compute resource deployment |
+| Amazon S3 | Secure object storage and Terraform backend |
+| Amazon RDS | Managed MySQL database service |
+| DynamoDB | Terraform state locking |
+| Open Policy Agent (OPA) | Policy-as-Code and security validation |
+| Rego | Policy language used by OPA |
+| Git & GitHub | Version control and project hosting |
+| AWS CLI | AWS authentication and backend setup |
 
 # Repository Structure
 
@@ -408,7 +416,10 @@ terraform output
 
 # Policy-as-Code (OPA)
 
-This project uses Open Policy Agent (OPA) for infrastructure security validation.
+This project integrates Open Policy Agent (OPA) to implement Policy-as-Code for infrastructure governance and security validation.
+
+OPA evaluates Terraform execution plans before infrastructure deployment to identify potential security and compliance issues. Terraform plans are converted into JSON format and analyzed using Rego policies to enforce infrastructure standards.
+
 
 Policies include:
 
