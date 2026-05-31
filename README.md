@@ -417,11 +417,13 @@ This project integrates Open Policy Agent (OPA) to implement Policy-as-Code for 
 OPA evaluates Terraform execution plans before infrastructure deployment to identify potential security and compliance issues. Terraform plans are converted into JSON format and analyzed using Rego policies to enforce infrastructure standards.
 
 
-Policies include:
+The implemented policies validate:
 
-- Prevent public S3 buckets
-- Prevent public SSH access
-- Enforce required tags
+- Prevention of public S3 bucket exposure
+- Detection of unrestricted SSH access
+- Enforcement of mandatory Terraform resource tags
+
+This approach demonstrates enterprise-style infrastructure governance and automated compliance validation practices commonly used in DevOps and Cloud Engineering workflows.
 
 ---
 
@@ -476,16 +478,23 @@ opa eval \
 
 # Security Features
 
-This project implements:
+# Security Features
 
-- Remote Terraform state
-- State locking
-- S3 encryption
-- S3 versioning
-- Public access blocking
-- Private database deployment
-- Policy-as-Code validation
-- Resource tagging
+This project implements multiple infrastructure security and governance best practices to simulate a production-style AWS environment.
+
+Implemented security features include:
+
+- Private RDS database deployment within private subnets
+- Security group isolation and controlled ingress access
+- Secure S3 bucket configuration with encryption enabled
+- S3 bucket versioning for state recovery and protection
+- Public access blocking for S3 storage
+- Remote Terraform state management using encrypted S3 backend
+- Terraform state locking using DynamoDB
+- Policy-as-Code validation using Open Policy Agent (OPA)
+- Mandatory resource tagging for governance and cost tracking
+
+These configurations help reduce infrastructure exposure, improve governance, and enforce secure Infrastructure as Code deployment standards.
 
 ---
 
@@ -573,15 +582,20 @@ terraform destroy
 
 # Future Improvements
 
-Potential enhancements:
+Potential future enhancements for this project include:
 
-- NAT Gateway
-- Load Balancer
-- Auto Scaling
-- GitHub Actions CI/CD
-- AWS Secrets Manager
-- Multi-environment support
-- Docker/ECS/EKS integration
+- NAT Gateway implementation for private subnet internet access
+- Application Load Balancer (ALB) integration
+- Auto Scaling Group configuration for high availability
+- GitHub Actions CI/CD pipeline for automated Terraform workflows
+- AWS Secrets Manager integration for secure credential management
+- Multi-environment deployment support (Dev, Staging, Production)
+- Containerization using Docker
+- ECS or EKS container orchestration deployment
+- Infrastructure monitoring using CloudWatch
+- Terraform workspaces for environment isolation
+
+These improvements would further enhance scalability, security, automation, and production-readiness of the infrastructure environment.
 
 ---
 
