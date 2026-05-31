@@ -235,11 +235,11 @@ cd iac-project/environments/dev
 
 ---
 
-# Step 2 — Create Terraform Backend Resources
+## Step 2 — Create Terraform Backend Resources
 
 Terraform backend resources must be created before initializing Terraform.
 
-## Create S3 Backend Bucket
+### Create S3 Backend Bucket
 
 Replace bucket name with globally unique name.
 
@@ -257,7 +257,7 @@ aws s3api put-bucket-versioning \
 
 ---
 
-## Create DynamoDB Lock Table
+### Create DynamoDB Lock Table
 
 ```bash
 aws dynamodb create-table \
@@ -269,7 +269,7 @@ aws dynamodb create-table \
 
 ---
 
-# Step 3 — Update Backend Configuration
+## Step 3 — Update Backend Configuration
 
 Open:
 
@@ -291,7 +291,7 @@ backend "s3" {
 
 ---
 
-# Step 4 — Update terraform.tfvars
+## Step 4 — Update terraform.tfvars
 
 Open:
 
@@ -310,7 +310,7 @@ db_password = "StrongPassword123!"
 
 ---
 
-# Step 5 — Initialize Terraform
+## Step 5 — Initialize Terraform
 
 ```bash
 terraform init
@@ -324,7 +324,7 @@ yes
 
 ---
 
-# Step 6 — Validate Terraform Configuration
+## Step 6 — Validate Terraform Configuration
 
 ```bash
 terraform validate
@@ -332,7 +332,7 @@ terraform validate
 
 ---
 
-# Step 7 — Format Terraform Files
+## Step 7 — Format Terraform Files
 
 ```bash
 terraform fmt
@@ -340,7 +340,7 @@ terraform fmt
 
 ---
 
-# Step 8 — Preview Infrastructure Changes
+## Step 8 — Preview Infrastructure Changes
 
 ```bash
 terraform plan
@@ -348,7 +348,7 @@ terraform plan
 
 ---
 
-# Step 9 — Deploy Infrastructure
+## Step 9 — Deploy Infrastructure
 
 ```bash
 terraform apply
@@ -475,8 +475,6 @@ opa eval \
 ```
 
 ---
-
-# Security Features
 
 # Security Features
 
